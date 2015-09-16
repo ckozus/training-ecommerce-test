@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi proyecto de ecommerce</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<footer>
+  <p>
+    Proyecto desarrollado por Carlos Kozuszko
+    <br>
+    Contactarse a carlos@insignia4u.com
+  </p>
+</footer>
+
+</body>
+</html>
