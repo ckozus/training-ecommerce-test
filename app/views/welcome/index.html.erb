@@ -101,7 +101,7 @@
 
           <% @products.each do |product| %>
             <div class="large-4 small-6 columns">
-              <img src="https://placeimg.com/192/203/any">
+              <%= image_tag product.image.url(:medium) %>
 
               <div class="panel">
                 <h5><%= product.name %></h5>

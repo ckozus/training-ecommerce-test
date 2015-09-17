@@ -9,4 +9,7 @@ class Product < ActiveRecord::Base
   validates :price, presence: true, numericality: true
   validates :code, presence: true, uniqueness: true
 
+  has_attached_file :image, styles: { medium: "192x203>" }, default_url: "/images/missing/:style.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
 end
