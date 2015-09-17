@@ -51,13 +51,11 @@
               <li><a href="#">Main Item 2</a></li>
               <li class="divider"></li>
               <li class="has-dropdown">
-                <a href="#">Main Item 3</a>
+                <a href="#">Marcas</a>
                 <ul class="dropdown">
-                  <li><a href="#">Dropdown Option</a></li>
-                  <li><a href="#">Dropdown Option</a></li>
-                  <li><a href="#">Dropdown Option</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">See all →</a></li>
+                  <% @brands.each do |brand| %>
+                    <li><%= link_to brand.name, home_brand_path(brand_id: brand.id) %></li>
+                  <% end %>
                 </ul>
               </li>
             </ul>
