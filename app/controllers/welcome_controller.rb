@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  before_action :load_data, only: [:index, :brand]
+  before_action :load_data, only: [:index, :brand, :category]
 
   def index
     @products = Product.all
@@ -10,11 +10,16 @@ class WelcomeController < ApplicationController
     render 'index'
   end
 
+  def category
+    @products = Product.all
+    render 'index'
+  end
+
 protected
 
   def load_data
-    @brands = Brand.all
-    @categories = Category.all
+    @brands = Brand.order(:name).all
+    @categories = Category.order(:name).all
   end
 
 end
