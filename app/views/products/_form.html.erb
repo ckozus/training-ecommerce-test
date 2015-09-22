@@ -41,6 +41,14 @@
     <%= f.collection_select :brand_id, Brand.all, :id, :pretty_name %>
   </div>
 
+  <div class="field">
+    Categorias:<br>
+    <% for category in Category.all %>
+      <%= check_box_tag "product[category_ids][]", category.id, @product.categories.include?(category) %>
+      <%= category.name %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

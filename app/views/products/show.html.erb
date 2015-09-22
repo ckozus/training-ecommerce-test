@@ -32,7 +32,19 @@
   <% else %>
     No hay Marca Asignada.
   <% end %>
-  
+</p>
+
+<p>
+  <strong>Categorias:</strong>
+  <% if @product.categories.empty? %>
+    No hay categorias asignadas.
+  <% else %>
+    <ul>
+    <% for category in @product.categories %>
+      <li><%= category.name %></li>
+    <% end %>
+    </ul>
+  <% end %>
 </p>
 
 <p>

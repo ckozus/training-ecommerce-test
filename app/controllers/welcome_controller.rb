@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
   end
 
   def category
-    @products = Product.all
+    @products = Product.includes(:categories).where(categories: {id: params[:category_id]})
     render 'index'
   end
 

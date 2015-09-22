@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :brand
 
-  has_and_belongs_to_many :category
+  has_and_belongs_to_many :categories
 
   validates :name, presence: true, length: {minimum: 10}
   validates :description, presence: true
