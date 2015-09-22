@@ -15,11 +15,26 @@ class WelcomeController < ApplicationController
     render 'index'
   end
 
+  def add_to_cart
+    @product = Product.find(params[:id])
+    if !session[:cart]
+      session[:cart] = []
+    end
+    session[:cart] << @product.id
+    redirect_to root_path
+  end
+
+  def remove_from_cart
+    session[:cart].delete(params[:id].to_i)
+    redirect_to root_path
+  end
+
 protected
 
   def load_data
     @brands = Brand.order(:name).all
     @categories = Category.order(:name).all
+    @products_in_cart = Product.where(id: session[:cart])
   end
 
 end

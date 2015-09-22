@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get 'marca/:brand_id' => 'welcome#brand', as: :home_brand
   get 'categoria/:category_id' => 'welcome#category', as: :home_category
 
+  post '/agregar' => 'welcome#add_to_cart', as: :add_to_cart
+  post '/quitar' => 'welcome#remove_from_cart', as: :remove_from_cart
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
