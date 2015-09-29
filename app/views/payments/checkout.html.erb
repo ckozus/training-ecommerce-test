@@ -1,0 +1,31 @@
+<h1>Confirmar sus datos para la compra</h1>
+
+<ul>
+  <% for product in @products_in_cart %>
+    <li>
+      <%= product.name %> - <%= number_to_currency product.price %>
+    </li>
+  <% end %>
+  <li>TOTAL: <b><%= number_to_currency cart_total %></b></li>
+</ul>
+
+<%= form_for @order, url: process_payment_path do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :surname %>
+    <%= f.text_field :surname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <%= f.submit 'Pagar con MercadoPago' %>
+
+<% end %>

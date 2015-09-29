@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 gem "paperclip", "~> 4.3"
 
+gem 'mercadopago'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

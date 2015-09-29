@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   before_action :load_data, only: [:index, :brand, :category]
+  before_action :load_products, only: [:index, :brand, :category]
 
   def index
     @products = Product.all
@@ -34,7 +35,6 @@ protected
   def load_data
     @brands = Brand.order(:name).all
     @categories = Category.order(:name).all
-    @products_in_cart = Product.where(id: session[:cart])
   end
 
 end

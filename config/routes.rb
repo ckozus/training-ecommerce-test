@@ -18,6 +18,13 @@ Rails.application.routes.draw do
   post '/agregar' => 'welcome#add_to_cart', as: :add_to_cart
   post '/quitar' => 'welcome#remove_from_cart', as: :remove_from_cart
 
+  get '/comprar' => 'payments#checkout', as: :checkout
+  post '/pagar' => 'payments#process_payment', as: :process_payment
+
+  get '/payments/success' => 'payments#success', as: :success
+  get '/payments/failure' => 'payments#failure', as: :failure
+  get '/payments/pending' => 'payments#pending', as: :pending
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
